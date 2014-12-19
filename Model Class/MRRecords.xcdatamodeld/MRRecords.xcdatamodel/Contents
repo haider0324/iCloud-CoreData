@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="12F45" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Album" representedClassName="Album" syncable="YES">
+        <attribute name="released" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="artist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Artist" inverseName="album" inverseEntity="Artist" syncable="YES"/>
+    </entity>
+    <entity name="Artist" representedClassName="Artist" syncable="YES">
+        <attribute name="artistname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hometown" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="album" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Album" inverseName="artist" inverseEntity="Album" syncable="YES"/>
+        <relationship name="label" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Label" inverseName="artists" inverseEntity="Label" syncable="YES"/>
+    </entity>
+    <entity name="Label" representedClassName="Label" syncable="YES">
+        <attribute name="founded" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="genre" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="artists" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Artist" inverseName="label" inverseEntity="Artist" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Album" positionX="133" positionY="119" width="128" height="88"/>
+        <element name="Artist" positionX="-56" positionY="-9" width="128" height="103"/>
+        <element name="Label" positionX="-254" positionY="-160" width="128" height="103"/>
+    </elements>
+</model>
